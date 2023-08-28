@@ -2,17 +2,24 @@ from flask import Flask
 from flask_restful import Resource, Api, reqparse
 from flask import Flask, jsonify, request
 
+
+filename = "profile_info"
+description = "get profile infomation"
+
 # GENERAL API INFIO
 class Info(Resource):
     def post(self):
-        data = "Info  API POST"
+        data = filename + " API POST"
+        info = description
         return{
-            'status': data
+            'information': data,
+            'Description': description
+
         }, 200
 
     def get(self):
-       data = "Info  API GET"
-       return {'status': data}, 200
+       data = filename + " API GET"
+       return {'info': data}, 200
 
 class Check(Resource):
     def post(self):
